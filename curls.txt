@@ -1,0 +1,38 @@
+curl -X POST 127.0.0.1:27147 -H "Content-Type: application/json" -d '{ "method": "status", "jsonrpc": "2.0","id": "1" }'
+
+
+curl -X POST 127.0.0.1:27147 -H "Content-Type: application/json" -d '{ "method": "broadcast_tx_commit", "params": ["0x8b01f0625dee0a2222e774b32d0a14a3968df24f9bd169cef2e4d7b30fe764f89a74a11203424e4218904e12610a19eb5ae98714a3968df24f9bd169cef2e4d7b30fe764f89a74a112400e9b01b24ce9e1e49398af5213ad51ee58ef54ed1b54162dd11dbf9d7da401ea2ab356482cb9dbbdff26aed0d796773183aeaaa23a6a358f8400d345b8b7817018e29102"],"jsonrpc": "2.0","id": "1" }'
+
+
+58adf95fa7ab4a9d4ce21a4f0e404ffc2d158105f994dd0f11a583bac68a9d1a
+
+./tbnbcli status -n "https://data-seed-pre-1-s3.binance.org:443"
+
+./tbnbcli account tbnb1emjc24xvvsuax5z7awe2wnd4ts8pt7l6c898xc \
+--node "https://data-seed-pre-1-s3.binance.org:443" \
+--chain-id "Binance-Chain-Ganges"
+
+./tbnbcli send --node "https://data-seed-pre-1-s3.binance.org:443" \
+--chain-id "Binance-Chain-Ganges" \
+--account-number 34949 \
+--sequence 33 \
+--source 0 \
+--amount "10000:BNB" \
+--from tbnb1emjc24xvvsuax5z7awe2wnd4ts8pt7l6c898xc \
+--to tbnb1tmpftd3us6h9xrunmye64vtf6ud2e9rju0qujf \
+--generate-only \
+--trace \
+--indent \
+--offline
+
+./tbnbcli token freeze --node "https://data-seed-pre-1-s3.binance.org:443" \
+--chain-id "Binance-Chain-Ganges" \
+--account-number 34949 \
+--sequence 33 \
+--source 0 \
+--amount "10000:BNB" \
+--from "tbnb1emjc24xvvsuax5z7awe2wnd4ts8pt7l6c898xc" \
+--dry \
+--trace \
+--indent \
+--offline
